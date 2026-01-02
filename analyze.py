@@ -51,31 +51,31 @@ Analysis:"""
         return str(result)
 
 if __name__ == "__main__":
-    # Sample resume to test
-    sample_resume = """
-    JOHN DOE
-    john@email.com | (555) 123-4567
-    
-    EXPERIENCE
-    Senior Software Engineer at TechCorp (2020-2024)
-    - Led team of 5 developers
-    - Improved system performance by 40%
-    - Built REST APIs serving 1M+ requests daily
-    
-    EDUCATION
-    BS Computer Science, State University (2020)
-    
-    SKILLS
-    Python, JavaScript, React, AWS, SQL, Git
-    """
-    
-    print("=" * 50)
-    print("RESUME ANALYZER")
-    print("=" * 50)
-    print("\nAnalyzing resume...\n")
-    
-    analysis = analyze_resume(sample_resume)
-    print(analysis)
-    
-    print("\n" + "=" * 50)
-    print("END OF ANALYSIS")
+   # Sample resume to test
+   sample_resume = """
+   JOHN DOE
+   john@email.com | (555) 123-4567
+  
+   EXPERIENCE
+   Senior Software Engineer at TechCorp (2020-2024)
+   - Led team of 5 developers
+   - Improved system performance by 40%
+   - Built REST APIs serving 1M+ requests daily
+  
+   EDUCATION
+   BS Computer Science, State University (2020)
+  
+   SKILLS
+   Python, JavaScript, React, AWS, SQL, Git
+   """
+  
+   print("=" * 50)
+   print("RESUME ANALYZER")
+   print("=" * 50)
+   print("\nAnalyzing resume...\n")
+  
+   analysis = analyze_resume(sample_resume)
+   print(analysis)
+  
+   print("\n" + "=" * 50)
+   print("END OF ANALYSIS")
