@@ -66,6 +66,16 @@ if __name__ == "__main__":
        pdf = sys.argv[1]
        print(f"\nAnalyzing: {pdf}\n")
        resume_text = extract_text_from_pdf(pdf)
+    # Response if no PDF provided
     else:
-       print("No resume provided")
+       print("\nNo resume provided")
        print("Drag the PDF into the same folder as this script")
+       exit(1)
+    
+    print("Analyzing resume ...\n")
+
+    analysis = analyze_resume(resume_text)
+    print(analysis)
+
+    print("\n" + "=" * 50)
+    print("END OF ANALYSIS")
