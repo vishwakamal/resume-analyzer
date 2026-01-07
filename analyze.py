@@ -1,17 +1,9 @@
-import os
 import requests
 
-api_key = os.getenv("HUGGING_FACE_API_KEY")
-
-if not api_key:
-    print("Error: HUGGING_FACE_API_KEY environment variable not set")
-    exit(1)
-
-API_URL = "https://router.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1"
-headers = {"Authorization": f"Bearer {api_key}"}
+OLLAMA_URL = "http://localhost:11434/api/generate"
 
 def analyze_resume(resume_text):
-    """Send resume to Hugging Face API for analysis"""
+    """Send resume to Ollama for analysis"""
     # Create prompt for analysis
     prompt = f"""Analyze this resume and provide:
 1. Overall score (0-100)
@@ -25,30 +17,25 @@ Resume:
 
 Analysis:"""
     
-    # Call Hugging Face API
+    # Call Ollama 
     response = requests.post(
-        API_URL,
-        headers=headers,
-        json={"inputs": prompt, "parameters": {"max_length": 1024}}
+        OLLAMA_URL,
+        json={
+            "model": "mistral",
+            "prompt": prompt,
+            "stream": False
+        }
     )
     
+    # Error Handling
     if response.status_code != 200:
         print(f"Error: {response.status_code}")
         print(response.text)
         exit(1)
     
     result = response.json()
+    return result.get("response", "")
     
-    # Extract text
-    if isinstance(result, list) and len(result) > 0:
-        generated_text = result[0].get("generated_text", "")
-        if prompt in generated_text:
-            analysis = generated_text.replace(prompt, "").strip()
-        else:
-            analysis = generated_text.strip()
-        return analysis
-    else:
-        return str(result)
 
 if __name__ == "__main__":
    # Sample resume to test
