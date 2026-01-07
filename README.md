@@ -1,10 +1,10 @@
 Resume Analyzer  
-Analyzes resumes using Hugging Face's free API. Get instant feedback on strengths, improvements, and action items.
+Analyzes resumes using Ollama's free local AI.
 
 Setup:  
-Get a free API token: https://huggingface.co/settings/tokens  
+Install Ollama: https://ollama.ai  
+Download the model: ollama run mistral  
 Install dependencies: pip3 install -r requirements.txt  
-Set API key: export HUGGING_FACE_API_KEY="hf_xxxxxxxxxxxxx"  
 Run: python3 analyze.py
 
 Usage:  
