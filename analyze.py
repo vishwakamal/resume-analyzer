@@ -1,6 +1,25 @@
 import requests
+import sys
+import pdfplumber
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
+
+def extract_text_from_pdf(pdf_path):
+    """Extract text from PDF"""
+    try:
+        text = ""
+        with pdfplumber.open(pdf_path) as pdf:
+            print(f"Reading PDF ... ({len(pdf.pages)} pages)\n")
+            for page in pdf.pages:
+                text += page.extract_text() + "\n"
+        return text
+    except FileNotFoundError:
+        print(f"Error: File '{pdf_path}' not found")
+        print("Make sure your PDF is in the same folder as this script")
+        exit(1)
+    except Exception as e:
+        print(f"Error reading PDF: {e}")
+        exit(1)
 
 def analyze_resume(resume_text):
     """Send resume to Ollama for analysis"""
@@ -38,31 +57,15 @@ Analysis:"""
     
 
 if __name__ == "__main__":
-   # Sample resume to test
-   sample_resume = """
-   JOHN DOE
-   john@email.com | (555) 123-4567
-  
-   EXPERIENCE
-   Senior Software Engineer at TechCorp (2020-2024)
-   - Led team of 5 developers
-   - Improved system performance by 40%
-   - Built REST APIs serving 1M+ requests daily
-  
-   EDUCATION
-   BS Computer Science, State University (2020)
-  
-   SKILLS
-   Python, JavaScript, React, AWS, SQL, Git
-   """
-  
-   print("=" * 50)
-   print("RESUME ANALYZER")
-   print("=" * 50)
-   print("\nAnalyzing resume...\n")
-  
-   analysis = analyze_resume(sample_resume)
-   print(analysis)
-  
-   print("\n" + "=" * 50)
-   print("END OF ANALYSIS")
+    print("=" * 50)
+    print("RESUME ANALYZER - Ollama")
+    print("=" * 50)
+
+    # Check if there is a valid PDF
+    if len(sys.argv) > 1:
+       pdf = sys.argv[1]
+       print(f"\nAnalyzing: {pdf}\n")
+       resume_text = extract_text_from_pdf(pdf)
+    else:
+       print("No resume provided")
+       print("Drag the PDF into the same folder as this script")
