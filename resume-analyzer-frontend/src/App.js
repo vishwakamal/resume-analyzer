@@ -1,13 +1,15 @@
-import React from 'react';
-import { useState } from 'react';
-import './App.css'
+import React, { useState } from 'react';
+import './App.css';
 
 function App() {
+  // State Variables
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState(null);
   const [error, setError] = useState(null);
+  const [darkMode, setDarkMode] = useState(false);
 
+  // Handle file selection
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     if (selectedFile && selectedFile.type === 'application/pdf') {
@@ -19,11 +21,13 @@ function App() {
     }
   };
 
+  // Handle drag over
   const handleDragOver = (e) => {
     e.preventDefault();
     e.stopPropagation();
   };
 
+  // Handle drop
   const handleDrop = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -36,6 +40,7 @@ function App() {
     }
   };
 
+  // Analyze resume
   const handleAnalyze = async () => {
     if (!file) {
       setError('Please select a file first');
@@ -67,17 +72,30 @@ function App() {
     }
   };
 
+  // Reset
   const handleReset = () => {
     setFile(null);
     setResults(null);
     setError(null);
   };
 
+  // Dark mode
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <div className="App">
+    <div className={`App ${darkMode ? 'dark-mode' : ''}`}>
       <header className="header">
         <h1>📄 Resume Analyzer</h1>
         <p>Get instant AI feedback on your resume</p>
+        <button
+          className="dark-mode-toggle"
+          onClick={toggleDarkMode}
+          aria-label="Toggle dark mode"
+        >
+          {darkMode ? '☀️' : '🌙'}
+        </button>
       </header>
 
       <main className="container">
