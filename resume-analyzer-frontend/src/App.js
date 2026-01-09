@@ -90,11 +90,18 @@ function App() {
         <h1>📄 Resume Analyzer</h1>
         <p>Get instant AI feedback on your resume</p>
         <button
-          className="dark-mode-toggle"
-          onClick={toggleDarkMode}
-          aria-label="Toggle dark mode"
+            className="dark-mode-toggle"
+            onClick={toggleDarkMode}
+            aria-label="Toggle dark mode"
         >
-          {darkMode ? '☀️' : '🌙'}
+            <div className={`toggle-switch ${darkMode ? 'active' : ''}`}>
+                <img 
+                    src={darkMode ? '/moon.svg' : '/sun.svg'} 
+                    alt="theme toggle"
+                    className="toggle-icon"
+                />
+                <div className="toggle-circle"></div>
+            </div>
         </button>
       </header>
 
