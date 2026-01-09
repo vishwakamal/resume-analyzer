@@ -1,0 +1,372 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  background-color: #f5f7fa;
+  color: #1a202c;
+  line-height: 1.6;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.header h1 {
+  font-size: 2.2em;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.header p {
+  font-size: 1em;
+  color: #718096;
+  font-weight: 400;
+}
+
+/* Main Container */
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.upload-section,
+.results-section {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  max-width: 700px;
+  width: 100%;
+  padding: 50px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Upload Section */
+.upload-box {
+  border: 2px dashed #cbd5e0;
+  border-radius: 10px;
+  padding: 50px 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #f9fafb;
+  margin-bottom: 30px;
+}
+
+.upload-box:hover {
+  border-color: #4299e1;
+  background-color: #f0f7ff;
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.1);
+}
+
+.upload-box.dragover {
+  border-color: #3182ce;
+  background-color: #ebf8ff;
+  box-shadow: 0 4px 12px rgba(49, 130, 206, 0.15);
+}
+
+.upload-icon {
+  font-size: 3.5em;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.upload-text {
+  color: #1a202c;
+  font-weight: 600;
+  font-size: 1.1em;
+  margin-bottom: 8px;
+}
+
+.upload-subtext {
+  color: #718096;
+  font-size: 0.95em;
+  margin-bottom: 24px;
+}
+
+.file-name {
+  color: #2d3748;
+  font-weight: 500;
+  margin-top: 16px;
+  font-size: 0.95em;
+  padding: 8px 12px;
+  background-color: #edf2f7;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* File Input & Button Styling */
+input[type="file"] {
+  display: none;
+}
+
+.file-input-label {
+  background-color: #4299e1;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+  font-size: 0.95em;
+  font-weight: 500;
+  border: none;
+  margin-bottom: 0;
+}
+
+.file-input-label:hover {
+  background-color: #3182ce;
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.25);
+  transform: translateY(-1px);
+}
+
+.file-input-label:active {
+  transform: translateY(0);
+}
+
+/* Primary Button */
+button {
+  width: 100%;
+  padding: 14px 24px;
+  background-color: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.05em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 20px;
+}
+
+button:hover:not(:disabled) {
+  background-color: #3182ce;
+  box-shadow: 0 6px 16px rgba(66, 153, 225, 0.2);
+  transform: translateY(-2px);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  background-color: #cbd5e0;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* Error Message */
+.error {
+  background-color: #fff5f5;
+  color: #c53030;
+  padding: 14px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #c53030;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+/* Score Card */
+.score-card {
+  background-color: #f0f7ff;
+  border: 1px solid #bee3f8;
+  border-radius: 10px;
+  padding: 40px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.score-number {
+  font-size: 4em;
+  font-weight: 700;
+  color: #2c5aa0;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 1.05em;
+  color: #2c5aa0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Result Groups */
+.result-group {
+  margin-bottom: 32px;
+}
+
+.result-group h2 {
+  font-size: 1.25em;
+  font-weight: 600;
+  color: #1a202c;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.result-list {
+  list-style: none;
+  background-color: #f9fafb;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #4299e1;
+  border-radius: 8px;
+  padding: 0;
+}
+
+.result-list li {
+  padding: 14px 18px;
+  color: #2d3748;
+  border-bottom: 1px solid #edf2f7;
+  line-height: 1.6;
+  font-size: 0.95em;
+}
+
+.result-list li:last-child {
+  border-bottom: none;
+}
+
+.result-list li:before {
+  content: "→ ";
+  color: #4299e1;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+/* Reset Button */
+.reset-btn {
+  background-color: #718096;
+  margin-top: 10px;
+}
+
+.reset-btn:hover:not(:disabled) {
+  background-color: #4a5568;
+  box-shadow: 0 6px 16px rgba(113, 128, 150, 0.2);
+}
+
+/* Loading State */
+.loading {
+  display: none;
+  text-align: center;
+  padding: 60px 40px;
+}
+
+.spinner {
+  border: 3px solid #e2e8f0;
+  border-top: 3px solid #4299e1;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading p {
+  color: #718096;
+  font-size: 1.05em;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    padding: 30px 20px;
+  }
+
+  .header h1 {
+    font-size: 1.8em;
+  }
+
+  .header p {
+    font-size: 0.95em;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .upload-section,
+  .results-section {
+    padding: 30px;
+  }
+
+  .upload-box {
+    padding: 30px 20px;
+  }
+
+  .score-number {
+    font-size: 2.8em;
+  }
+
+  .score-card {
+    padding: 30px;
+  }
+
+  .result-group h2 {
+    font-size: 1.1em;
+  }
+
+  .result-list li {
+    padding: 12px 14px;
+    font-size: 0.9em;
+  }
+
+  button {
+    padding: 12px 20px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.5em;
+  }
+
+  .upload-section,
+  .results-section {
+    padding: 20px;
+  }
+
+  .upload-box {
+    padding: 25px 15px;
+  }
+
+  .upload-icon {
+    font-size: 2.5em;
+  }
+
+  .score-number {
+    font-size: 2.2em;
+  }
+
+  .result-group h2 {
+    font-size: 1em;
+  }
+}
