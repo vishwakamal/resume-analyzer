@@ -370,3 +370,133 @@ button:disabled {
     font-size: 1em;
   }
 }
+
+/* Dark Mode */
+.App.dark-mode {
+  background-color: #0f1419;
+}
+
+.App.dark-mode body {
+  background-color: #0f1419;
+  color: #e2e8f0;
+}
+
+.App.dark-mode .header {
+  background-color: #1a202c;
+  border-bottom-color: #2d3748;
+}
+
+.App.dark-mode .header h1 {
+  color: #e2e8f0;
+}
+
+.App.dark-mode .header p {
+  color: #a0aec0;
+}
+
+.App.dark-mode .upload-section,
+.App.dark-mode .results-section {
+  background-color: #1a202c;
+  border-color: #2d3748;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.App.dark-mode .upload-box {
+  background-color: #2d3748;
+  border-color: #4a5568;
+}
+
+.App.dark-mode .upload-box:hover {
+  background-color: #4a5568;
+  border-color: #63b3ed;
+  box-shadow: 0 4px 12px rgba(99, 179, 237, 0.15);
+}
+
+.App.dark-mode .upload-text {
+  color: #e2e8f0;
+}
+
+.App.dark-mode .upload-subtext {
+  color: #a0aec0;
+}
+
+.App.dark-mode .file-name {
+  background-color: #4a5568;
+  color: #e2e8f0;
+}
+
+.App.dark-mode .error {
+  background-color: #742a2a;
+  color: #fed7d7;
+  border-left-color: #fc8181;
+}
+
+.App.dark-mode .score-card {
+  background-color: #2d3748;
+  border-color: #4a5568;
+}
+
+.App.dark-mode .score-number {
+  color: #63b3ed;
+}
+
+.App.dark-mode .score-label {
+  color: #63b3ed;
+}
+
+.App.dark-mode .result-group h2 {
+  color: #e2e8f0;
+}
+
+.App.dark-mode .result-list {
+  background-color: #2d3748;
+  border-color: #4a5568;
+  border-left-color: #63b3ed;
+}
+
+.App.dark-mode .result-list li {
+  color: #cbd5e0;
+  border-bottom-color: #4a5568;
+}
+
+.App.dark-mode .result-list li:before {
+  color: #63b3ed;
+}
+
+.dark-mode-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  border: 2px solid #cbd5e0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5em;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.dark-mode-toggle:hover {
+  border-color: #4299e1;
+  background-color: rgba(66, 153, 225, 0.1);
+  transform: scale(1.05);
+}
+
+.App.dark-mode .dark-mode-toggle {
+  border-color: #4a5568;
+}
+
+.App.dark-mode .dark-mode-toggle:hover {
+  border-color: #63b3ed;
+  background-color: rgba(99, 179, 237, 0.1);
+}
+
+.header {
+  position: relative;
+}
