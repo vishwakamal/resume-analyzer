@@ -307,6 +307,17 @@ button:disabled {
   margin: 0;
   width: auto;
   height: auto;
+  box-shadow: none !important;
+  outline: none;
+}
+
+.dark-mode-toggle:focus {
+  outline: none;
+  box-shadow: none !important;
+}
+
+.dark-mode-toggle:hover {
+  box-shadow: none !important;
 }
 
 .toggle-switch {
@@ -319,6 +330,7 @@ button:disabled {
   display: flex;
   align-items: center;
   padding: 0 4px;
+  box-shadow: none;
 }
 
 .toggle-switch.active {
@@ -352,10 +364,6 @@ button:disabled {
 
 .toggle-switch.active .toggle-circle {
   left: 30px;
-}
-
-.dark-mode-toggle:hover .toggle-switch {
-  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.25);
 }
 
 /* Dark Mode Colors */

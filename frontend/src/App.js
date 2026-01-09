@@ -87,7 +87,7 @@ function App() {
   return (
     <div className={`App ${darkMode ? 'dark-mode' : ''}`}>
       <header className="header">
-        <h1>📄 Resume Analyzer</h1>
+        <h1>Resume Analyzer</h1>
         <p>Get instant AI feedback on your resume</p>
         <button
             className="dark-mode-toggle"
