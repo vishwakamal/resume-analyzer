@@ -331,6 +331,9 @@ button:disabled {
   align-items: center;
   padding: 0 4px;
   box-shadow: none;
+
+  -webkit-mask: radial-gradient(circle, black 100%, transparent 100%);
+  mask: radial-gradient(circle, black 100%, transparent 100%);
 }
 
 .toggle-switch.active {
